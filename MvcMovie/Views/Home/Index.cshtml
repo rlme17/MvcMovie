@@ -1,0 +1,115 @@
+﻿@{
+    ViewData["Title"] = "Favorite Movie";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('https://img.freepik.com/free-vector/realistic-luxury-background_23-2149354608.jpg?w=1380&t=st=1714657989~exp=1714658589~hmac=67bacb60c257982d35fad7137fa8db3eb91720d431b06fadc795e8c8de081d15');
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+        margin: 0;
+        padding: 1px;
+        box-sizing: border-box;
+        background-color: #f0f0f0;
+    }
+
+
+    h2 {
+        color: #007bff;
+        margin-top: 50px;
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    p {
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    .movie-info {
+        margin-top: 20px;
+    }
+
+        .movie-info img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input[type="file"] {
+            display: none;
+        }
+
+        .form-group .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+</style>
+
+<div class="container">
+    <h1>My Favorite Movie</h1>
+
+    <div class="movie-info">
+        <img id="movie-image" src="path/to/your/default/image.jpg" alt="Movie Poster">
+        <p>Movie Title: Your Favorite Movie Title</p>
+        <p>Release Year: 20XX</p>
+        <p>Director: Director's Name</p>
+        <p>Description: Brief description of the movie</p>
+    </div>
+
+    <div class="form-group">
+        <label for="movie-file">Upload Movie Image:</label>
+        <input type="file" id="movie-file" accept="image/*" onchange="previewImage(event)">
+        <button class="btn" onclick="document.getElementById('movie-file').click()">Choose Image</button>
+    </div>
+</div>
+
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var imgElement = document.getElementById('movie-image');
+            imgElement.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
